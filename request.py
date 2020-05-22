@@ -4,7 +4,7 @@ from zeep import Client
 from zeep.transports import Transport
 
 session = Session()
-session.auth = HTTPBasicAuth("ws1user", "ibKIGbidJ96SNsp")
+session.auth = HTTPBasicAuth("LOGIN", "PASS")
 client = Client('http://10.2.4.141/test1c5/ws/ws1.1cws?wsdl',
             transport=Transport(session=session))
 
