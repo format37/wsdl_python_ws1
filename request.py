@@ -11,7 +11,6 @@ with open('auth.pass','r') as file:
 	password=file.read().replace('\n', '')
 	file.close()
 
-print(login,password)
 session.auth = HTTPBasicAuth(login, password)
 client = Client('http://10.2.4.141/test1c5/ws/ws1.1cws?wsdl',transport=Transport(session=session))
 
@@ -71,6 +70,24 @@ def serviceList():
 	print('services (',len(services),'):')
 	for service in services:
 		print(service)
+
+def catList():
 	
+	print('call catList')
+	
+	request = client.service.catList()
+	
+	code		= request.result.code
+	message		= request.result.message
+	cats	= request.cats
+	
+	print('code',code)
+	print('message',message)
+	print('cats (',len(cats),'):')
+	for cat in cats:
+		print(cat)
+
+		
 #createRequest()
-serviceList()
+#serviceList()
+catList()
